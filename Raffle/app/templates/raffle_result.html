@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>My Raffle App - Raffle Result</title>
+</head>
+<body>
+	<h1>Raffle Result</h1>
+	{% if winners %}
+		<p>Congratulations to the following winners:</p>
+		<ul>
+			{% for winner in winners %}
+				<li>{{ winner.name }} ({{ winner.email }})</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No winners yet. Check back later!</p>
+	{% endif %}
+	<form method="get" action="{% url 'landing_page' %}">
+		<input type="submit" value="Enter a New Raffle">
+	</form>
+</body>
+</html>
